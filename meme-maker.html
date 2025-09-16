@@ -106,16 +106,16 @@
       col.append(card); 
       return col; 
     }
-    
+
     memeForm.addEventListener("submit", (e) => {
-        event.preventDefault();
+       //if
     })
 
     // --- Assign 1 behavior: validate + create/insert card --- 
     /*  
     *     DONE 1. Add an event listener for the form being submitted 
     *        - Prevent the form from actually submitting anywhere  
-    *     2. Store the trimmed (.trim()) values from the inputs in variables. 
+    *     DONE 2. Store the trimmed (.trim()) values from the inputs in variables. 
     *     3. If the url is an empty string show an error message "Please provide an image URL" in the forms span (id of formMsg) 
     *        - give the span a class of "text-danger", remove the class of "text-success" 
     *        - exit out of the handler (return) 
