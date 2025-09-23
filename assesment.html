@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <title>Space Snack Shelf</title> 
+  <style> 
+    .highlight { 
+      background: gold; 
+      border: 2px solid black; 
+      font-size: 1.5em; 
+    } 
+  
+    .snack { 
+      padding: .4rem .6rem; 
+      margin: .25rem 0; 
+      list-style: "🛰️ "; 
+    } 
+  </style> 
+</head> 
+<body> 
+  <h1 id="pageTitle">Space Snack Shelf</h1> 
+  
+  <div class="toolbar"> 
+    <button id="featureBtn">Feature First Snack</button> 
+    <button id="clearBtn">Clear Highlights</button> 
+  </div> 
+  
+  <ul id="snackList"> 
+    <li class="snack">Moon Pie</li> 
+    <li class="snack">Meteor Chips</li> 
+    <li class="snack">Comet Gummies</li> 
+  </ul> 
+  
+  <form id="snackForm" action="#"> 
+    <input type="text" name="snackName" placeholder="Snack name" required> 
+  
+    <select name="snackEmoji"> 
+      <option value="">--Choose Emoji--</option> 
+      <option value="🍪">Cookie</option> 
+      <option value="🍫">Chocolate</option> 
+      <option value="🍩">Donut</option> 
+      <option value="🍬">Candy</option> 
+      <option value="🍿">Popcorn</option> 
+    </select> 
+  
+    <button type="submit">Add Snack</button> 
+  
+    <label> 
+      <input type="checkbox" name="addToTop"> 
+      Add to top (prepend) 
+    </label> 
+  </form> 
+  
+  <script> 
+    // Students: Write your JavaScript here.
+    featureBtn.addEventListener("click", (event) => {
+        const firstSnack = document.querySelector(".snack");
+        firstSnack.classList.add("highlight");
+        
+    })
+
+    // Must use: 
+    // - getElementById 
+    // - querySelector 
+    // - querySelectorAll 
+    // - classList.add / classList.remove 
+    // - Adding inline styles 
+    // - prepend / append 
+    // - FormData.get to retrieve form values 
+  </script> 
+</body> 
+</html> 
