@@ -52,19 +52,26 @@
     </label> 
   </form> 
   
-  <script> 
+  <script>
     // Students: Write your JavaScript here.
+    document.addEventListener('DOMContentLoaded', function() {
+        
+    });
+
+
     featureBtn.addEventListener("click", (event) => {
-        const firstSnack = document.querySelector(".snack");
-        firstSnack.classList.add("highlight");
-        firstSnack.style.backgroundColor = "lightyellow";
-        firstSnack.style.textTransform = "lightyellow";
-        
-    
+      const firstSnack = document.querySelector(".snack");
+      firstSnack.classList.add("highlight");
+      firstSnack.style.backgroundColor = "lightyellow";
+      firstSnack.style.textTransform = "lightyellow";
     })
+
+
     clearBtn.addEventListener("click", (event) => {
-        
-        
+      const allSnacks = document.querySelectorAll(".snack");
+      allSnacks[0].classList.remove("highlight");
+      allSnacks[0].style.backgroundColor = "";
+      allSnacks[0].style.textTransform = "";
     })
 
     
