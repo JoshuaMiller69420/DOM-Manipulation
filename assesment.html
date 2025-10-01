@@ -57,7 +57,16 @@
     featureBtn.addEventListener("click", (event) => {
         const firstSnack = document.querySelector(".snack");
         firstSnack.classList.add("highlight");
+        firstSnack.style.textTransform = "uppercase"
+        firstSnack.style.backgroundColor = "lightyellow"
         
+    })
+    clearBtn.addEventListener("click", (event) => {
+      const allSnacks = document.querySelectorAll(".snack");
+      allSnacks[0].classList.remove("highlight");
+      allSnacks[0].style.textTransform = "";
+      allSnacks[0].style.backgroundColor = "";
+
     })
 
     // Must use: 
