@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12x16 Grid</title>
+  <style>
+    .stuff{
+        color: white;
+        justify-self: center;
+
+    }
+    body {
+      background-color: black;
+      justify-self: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    } 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 40px);
+      grid-template-rows: repeat(16, 40px);
+      gap: 0;
+    } 
+    .cell {
+      border: 1px solid white;
+      width: 40px;
+      height: 40px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+    <div class="stuff">
+        <p>Pick a color:</p>
+        <input type="color">
+        <button>clear</button>
+    </div>
+  <div class="grid">
+    <!-- Generate 192 (12x16) cells -->
+     
+
+    <script>
+      const cell = document.getElementsByClassName("cell");
+      colorInput = document.querySelector('input[type="color"]');
+
+
+      const grid = document.querySelector('.grid');
+      for (let i = 0; i < 12 * 16; i++) {
+        const cell = document.createElement('div');
+          cell.className = 'cell';
+          grid.appendChild(cell);
+          cell.addEventListener("click", function(event) {
+              cell.style.backgroundColor = colorInput.value;
+          });
+      }
+
+      clrbtn = document.querySelector('button');
+      clrbtn.addEventListener("click", function(){
+          const cells = document.getElementsByClassName("cell");
+          for (let i = 0; i < cells.length; i++){
+              cells[i].style.backgroundColor = "black";
+          }
+      });
+    </script>
+    </div>
+</body>
+</html>

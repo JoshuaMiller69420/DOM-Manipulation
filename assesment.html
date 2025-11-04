@@ -79,8 +79,26 @@
     })
 
     submitBtn.addEventListener("click", (event) =>{
-      preventDefault()
-      FormData
+      event.preventDefault()
+      const fData = new FormData(snackForm);
+        const snackName = fData.get("snackName");
+        const snackEmoji = fData.get("snackEmoji");
+        const addToTop = fData.get("addToTop");
+        const newList = document.createElement("li");
+        console.log(snackEmoji);
+        newList.textContent = snackName;
+        newList.classList.add("snack");
+        if (snackEmoji != "") {
+          newList.textContent = `${snackEmoji} ${snackName}`;
+        } else {
+          newList.textContent = snackName;
+        }
+        if (addToTop == "on") {
+          snackList.prepend(newList);
+        } else {
+          snackList.append(newList);
+        }
+        snackForm.reset();
     })
 
     
