@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Snack Shelf</title>
+    <style>
+      .highlight {
+        background: gold;
+        border: 2px solid black;
+        font-size: 1.5em;
+      }
+      .snack {
+        padding: 0.4rem 0.6rem;
+        margin: 0.25rem 0;
+        list-style: "🛰️ ";
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="pageTitle">Space Snack Shelf</h1>
+    <div class="toolbar">
+      <button id="featureBtn">Feature First Snack</button>
+      <button id="clearBtn">Clear Highlights</button>
+    </div>
+    <ul id="snackList">
+      <li class="snack">Moon Pie</li>
+      <li class="snack">Meteor Chips</li>
+      <li class="snack">Comet Gummies</li>
+    </ul>
+    <form id="snackForm" action="#">
+      <input type="text" name="snackName" placeholder="Snack name" required />
+      <select name="snackEmoji">
+        <option value="">--Choose Emoji--</option>
+        <option value="🍪">Cookie</option>
+        <option value="🍫">Chocolate</option>
+        <option value="🍩">Donut</option>
+        <option value="🍬">Candy</option>
+        <option value="🍿">Popcorn</option>
+      </select>
+      <button type="submit">Add Snack</button>
+      <label>
+        <input type="checkbox" name="addToTop" /> Add to top (prepend)
+      </label>
+    </form>
+    <script>
+      const page = document.getElementById("pageTitle");
+      const feature = document.getElementById("featureBtn");
+      const clear = document.getElementById("clearBtn");
+      const snackForm = document.getElementById("snackForm");
+      const snackList = document.getElementById("snackList");
+      page.style.color = "darkblue";
+      page.style.letterSpacing = "3px";
+
+      feature.addEventListener("click", (e) => {
+        const featureSnack = document.querySelector(".snack");
+        featureSnack.classList.add("highlight");
+        featureSnack.style.textTransform = "uppercase";
+        featureSnack.style.backgroundColor = "lightyellow";
+      });
+
+      clear.addEventListener("click", (e) => {
+        const allSnacks = document.querySelectorAll(".snack");
+        for (let i = 0; i < 2; i++) {
+          allSnacks[i].classList.remove("highlight");
+        }
+      });
+
+      snackForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fData = new FormData(snackForm);
+        const snackName = fData.get("snackName");
+        const snackEmoji = fData.get("snackEmoji");
+        const addToTop = fData.get("addToTop");
+        const newList = document.createElement("li");
+        console.log(snackEmoji);
+        newList.textContent = snackName;
+        newList.classList.add("snack");
+        if (snackEmoji != "") {
+          newList.textContent = `${snackEmoji} ${snackName}`;
+        } else {
+          newList.textContent = snackName;
+        }
+        if (addToTop == "on") {
+          snackList.prepend(newList);
+        } else {
+          snackList.append(newList);
+        }
+        snackForm.reset();
+      });
+
+      // Students: Write your JavaScript here.
+      // Must use:
+
+      // - getElementById
+      // - querySelector
+      // - querySelectorAll
+      // - classList.add / classList.remove
+      // - Adding inline styles
+      // - prepend / append
+      // - FormData.get to retrieve form values
+    </script>
+  </body>
+</html>
